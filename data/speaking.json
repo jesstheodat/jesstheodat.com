@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Engineering with AI in the Stack",
+    "event": "Datadog DASH 2026",
+    "date": "2026-06-10",
+    "role": "Panelist",
+    "platform": "Panel",
+    "summary": "A candid conversation on integrating AI into production engineering. I shared lessons on building structural scaffolding, navigating new bottlenecks in code review and on-call, and where human judgment remains critical.",
+    "url": "https://www.youtube.com/watch?v=7b0mgiYZsAk",
+    "thumbnail": "",
+    "featured": true
+  },
+  {
+    "title": "Ask an SRE: Lessons from the Frontlines",
+    "event": "Datadog DASH 2026",
+    "date": "2026-06-10",
+    "role": "Panelist",
+    "platform": "Panel",
+    "summary": "Panel discussion with SRE leaders on adapting reliability practices across scale and culture. Covered strategies for reducing alert fatigue, evolving incident response, and lessons learned from major production outages.",
+    "url": "https://www.youtube.com/watch?v=ttwfXtJGzVg",
+    "thumbnail": "",
+    "featured": true
+  },
+  {
+    "title": "The One With Security and Jessica Theodat",
+    "event": "Google SRE Prodcast",
+    "date": "2025-05-21",
+    "role": "Featured Guest",
+    "platform": "Podcast",
+    "summary": "Explored the intersection of security and site reliability engineering. Discussed balancing organizational tension between SRE and security, managing systemic risk, and optimizing joint incident response.",
+    "url": "https://www.youtube.com/watch?v=5_pG_X72Y5w",
+    "thumbnail": "",
+    "featured": true
+  },
+  {
+    "title": "Life of an SRE",
+    "event": "Google SRE Prodcast",
+    "date": "2023-10-03",
+    "role": "Featured Guest",
+    "platform": "Podcast",
+    "summary": "An inside look at navigating senior technical leadership in reliability engineering, covering mentorship, sustainable work-life integration, and representation in SRE.",
+    "url": "https://www.youtube.com/watch?v=3Ip3bSbVshM",
+    "thumbnail": "",
+    "featured": true
+  }
+]
