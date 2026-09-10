@@ -7,7 +7,7 @@
     "platform": "Panel",
     "summary": "A candid conversation on integrating AI into production engineering. I shared lessons on building structural scaffolding, navigating new bottlenecks in code review and on-call, and where human judgment remains critical.",
     "url": "https://www.youtube.com/watch?v=7b0mgiYZsAk",
-    "thumbnail": "",
+    "thumbnail": "https://img.youtube.com/vi/7b0mgiYZsAk/maxresdefault.jpg",
     "featured": true
   },
   {
@@ -18,7 +18,7 @@
     "platform": "Panel",
     "summary": "Panel discussion with SRE leaders on adapting reliability practices across scale and culture. Covered strategies for reducing alert fatigue, evolving incident response, and lessons learned from major production outages.",
     "url": "https://www.youtube.com/watch?v=ttwfXtJGzVg",
-    "thumbnail": "",
+    "thumbnail": "https://img.youtube.com/vi/ttwfXtJGzVg/maxresdefault.jpg",
     "featured": true
   },
   {
@@ -29,7 +29,7 @@
     "platform": "Podcast",
     "summary": "Explored the intersection of security and site reliability engineering. Discussed balancing organizational tension between SRE and security, managing systemic risk, and optimizing joint incident response.",
     "url": "https://www.youtube.com/watch?v=5_pG_X72Y5w",
-    "thumbnail": "",
+    "thumbnail": "https://img.youtube.com/vi/5_pG_X72Y5w/maxresdefault.jpg",
     "featured": true
   },
   {
@@ -40,7 +40,7 @@
     "platform": "Podcast",
     "summary": "An inside look at navigating senior technical leadership in reliability engineering, covering mentorship, sustainable work-life integration, and representation in SRE.",
     "url": "https://www.youtube.com/watch?v=3Ip3bSbVshM",
-    "thumbnail": "",
+    "thumbnail": "https://img.youtube.com/vi/3Ip3bSbVshM/maxresdefault.jpg",
     "featured": true
   }
 ]
