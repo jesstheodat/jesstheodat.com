@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="12" fill="#0c0e12"/>
-  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#e6a15c" stroke-width="2" stroke-opacity="0.3"/>
-  <text x="32" y="42" font-family="-apple-system, BlinkMacSystemFont, 'JetBrains Mono', monospace" font-size="26" font-weight="bold" fill="#e6a15c" text-anchor="middle">JT</text>
+  <rect width="64" height="64" rx="12" fill="#f8fafc"/>
+  <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#9a4f12" stroke-width="2" stroke-opacity="0.45"/>
+  <text x="32" y="42" font-family="-apple-system, BlinkMacSystemFont, 'JetBrains Mono', monospace" font-size="26" font-weight="bold" fill="#9a4f12" text-anchor="middle">JT</text>
 </svg>
