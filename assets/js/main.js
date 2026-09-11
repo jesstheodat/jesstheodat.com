@@ -40,22 +40,39 @@ async function loadSpeakingAppearances() {
                 const platformLabel = escapeHtml(item.platform || item.type || 'Media');
                 const dateLabel = escapeHtml(item.date || '');
                 const title = escapeHtml(item.title || '');
-                const pub = escapeHtml(item.publication || '');
+                const pub = escapeHtml(item.event || item.publication || '');
                 const summary = escapeHtml(item.summary || '');
                 const url = item.url ? escapeHtml(item.url) : null;
+                const eventName = escapeHtml(item.event || item.publication || '');
+                const role = escapeHtml(item.role || '');
 
                 card.innerHTML = `
                     <div class="media-header">
-                        <span class="platform-badge">${platformLabel} ${pub ? '• ' + pub : ''}</span>
+                        <span class="platform-badge">
+                            ${platformLabel}${eventName ? ' · ' + eventName : ''}
+                        </span>
                         <span class="media-date">${dateLabel}</span>
                     </div>
+                
                     <h3 class="media-title">${title}</h3>
+                
+                    ${role ? `<p class="text-muted">${role}</p>` : ''}
+                
                     <p class="media-summary">${summary}</p>
+                
                     <div class="media-footer">
-                        ${url ? `<a href="${url}" class="project-link" target="_blank" rel="noopener noreferrer">View/Listen Canonical Recording &rarr;</a>` : '<span class="badge-pending">Recording Link Pending Verification</span>'}
+                        ${
+                            url
+                                ? `<a href="${url}"
+                                      class="project-link"
+                                      target="_blank"
+                                      rel="noopener noreferrer">
+                                      Watch / listen &rarr;
+                                   </a>`
+                                : ''
+                        }
                     </div>
                 `;
-
                 container.appendChild(card);
             });
         }
