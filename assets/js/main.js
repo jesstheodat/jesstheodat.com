@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. Fetch and render structured speaking/media data
   loadSpeakingAppearances();
+  initCareerStack();
 });
 
 
@@ -284,4 +285,254 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+
+/**
+ * Interactive Career Stack
+ *
+ * Synchronizes:
+ * - career narrative cards
+ * - isometric stack planes
+ * - defensive privacy branch
+ *
+ * Click/tap is persistent.
+ * Hover previews a layer on pointer devices.
+ * Keyboard interaction works through native buttons.
+ */
+function initCareerStack() {
+  const section = document.getElementById('journey');
+
+  if (!section) return;
+
+  const cards = Array.from(
+    section.querySelectorAll('.career-layer-card')
+  );
+
+  const triggers = Array.from(
+    section.querySelectorAll('.career-layer-trigger')
+  );
+
+  const visualControls = Array.from(
+    section.querySelectorAll(
+      '.career-plane, .career-privacy-plane'
+    )
+  );
+
+  if (!cards.length || !triggers.length) return;
+
+  let selectedLayer = 'security';
+
+
+  function getCard(layer) {
+    return section.querySelector(
+      `.career-layer-card[data-career-layer="${layer}"]`
+    );
+  }
+
+
+  function getTrigger(layer) {
+    return section.querySelector(
+      `.career-layer-trigger[data-career-target="${layer}"]`
+    );
+  }
+
+
+  function setActiveLayer(layer, options = {}) {
+    const {
+      persist = true,
+      moveFocus = false
+    } = options;
+
+    const selectedCard = getCard(layer);
+
+    if (!selectedCard) return;
+
+    cards.forEach(card => {
+      const isActive =
+        card.dataset.careerLayer === layer;
+
+      card.classList.toggle('is-active', isActive);
+
+      const trigger =
+        card.querySelector('.career-layer-trigger');
+
+      const panel =
+        card.querySelector('.career-layer-details');
+
+      if (trigger) {
+        trigger.setAttribute(
+          'aria-selected',
+          isActive ? 'true' : 'false'
+        );
+      }
+
+      if (panel) {
+        panel.hidden = !isActive;
+      }
+    });
+
+
+    visualControls.forEach(control => {
+      const isActive =
+        control.dataset.careerTarget === layer;
+
+      control.classList.toggle(
+        'is-active',
+        isActive
+      );
+    });
+
+
+    if (persist) {
+      selectedLayer = layer;
+    }
+
+
+    if (moveFocus) {
+      const trigger = getTrigger(layer);
+
+      if (trigger) {
+        trigger.focus();
+      }
+    }
+  }
+
+
+  function restoreSelectedLayer() {
+    setActiveLayer(selectedLayer, {
+      persist: false
+    });
+  }
+
+
+  /*
+   * Narrative cards
+   */
+
+  triggers.forEach(trigger => {
+    const layer =
+      trigger.dataset.careerTarget;
+
+    trigger.addEventListener('click', () => {
+      setActiveLayer(layer);
+    });
+
+
+    /*
+     * Optional keyboard arrow navigation between
+     * career-layer tabs.
+     */
+    trigger.addEventListener('keydown', event => {
+      const index =
+        triggers.indexOf(trigger);
+
+      let targetIndex = null;
+
+      if (
+        event.key === 'ArrowDown' ||
+        event.key === 'ArrowRight'
+      ) {
+        targetIndex =
+          (index + 1) % triggers.length;
+      }
+
+      if (
+        event.key === 'ArrowUp' ||
+        event.key === 'ArrowLeft'
+      ) {
+        targetIndex =
+          (index - 1 + triggers.length)
+          % triggers.length;
+      }
+
+      if (targetIndex === null) return;
+
+      event.preventDefault();
+
+      const next =
+        triggers[targetIndex];
+
+      setActiveLayer(
+        next.dataset.careerTarget,
+        {
+          moveFocus: true
+        }
+      );
+    });
+  });
+
+
+  /*
+   * Isometric planes
+   */
+
+  visualControls.forEach(control => {
+    const layer =
+      control.dataset.careerTarget;
+
+    control.addEventListener('click', () => {
+      setActiveLayer(layer);
+    });
+  });
+
+
+  /*
+   * Hover previews only for devices that
+   * actually support hover.
+   */
+
+  const hoverQuery =
+    window.matchMedia(
+      '(hover: hover) and (pointer: fine)'
+    );
+
+  if (hoverQuery.matches) {
+
+    cards.forEach(card => {
+      const layer =
+        card.dataset.careerLayer;
+
+      card.addEventListener(
+        'mouseenter',
+        () => {
+          setActiveLayer(layer, {
+            persist: false
+          });
+        }
+      );
+
+      card.addEventListener(
+        'mouseleave',
+        restoreSelectedLayer
+      );
+    });
+
+
+    visualControls.forEach(control => {
+      const layer =
+        control.dataset.careerTarget;
+
+      control.addEventListener(
+        'mouseenter',
+        () => {
+          setActiveLayer(layer, {
+            persist: false
+          });
+        }
+      );
+
+      control.addEventListener(
+        'mouseleave',
+        restoreSelectedLayer
+      );
+    });
+  }
+
+
+  /*
+   * Initial state.
+   */
+
+  setActiveLayer(selectedLayer);
 }
