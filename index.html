@@ -894,69 +894,153 @@
     -->
 
 
-    <!-- =========================================================
-         Speaking & Media
-         ========================================================= -->
+<!-- =========================================================
+     Speaking & Media
+     ========================================================= -->
 
-    <section id="speaking" class="section">
-      <div class="container">
+<section id="speaking" class="section">
+  <div class="container">
 
-        <div class="section-header">
+    <div class="section-header">
 
-          <span class="section-tag">Speaking &amp; media</span>
+      <span class="section-tag">
+        Speaking &amp; media
+      </span>
 
-          <h2 class="section-title">
-            Speaking &amp; Media
-          </h2>
+      <h2 class="section-title">
+        Speaking &amp; Media
+      </h2>
 
-          <p class="section-subtitle">
-            Conversations about reliability, security, leadership, and the
-            systems behind everyday life.
+      <p class="section-subtitle">
+        Conversations about reliability, security, leadership, and the
+        systems behind everyday life.
+      </p>
+
+    </div>
+
+
+    <div id="speaking-container">
+
+      <!-- =====================================================
+           Static semantic fallback
+           JavaScript replaces this content from speaking.json.
+           ===================================================== -->
+
+
+      <!-- Featured -->
+
+      <article class="media-featured">
+
+        <a
+          href="https://www.youtube.com/watch?v=5_pG_X72Y5w"
+          class="media-featured-thumbnail"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Watch The One With Security and Jessica Theodat"
+        >
+          <img
+            src="https://img.youtube.com/vi/5_pG_X72Y5w/maxresdefault.jpg"
+            alt="Video thumbnail for The One With Security and Jessica Theodat"
+            loading="lazy"
+          >
+
+          <span class="media-play media-play-large" aria-hidden="true">
+            ▶
+          </span>
+        </a>
+
+
+        <div class="media-featured-content">
+
+          <span class="media-featured-label">
+            Featured conversation
+          </span>
+
+          <p class="media-meta">
+            Google SRE Prodcast · Guest · May 2025
           </p>
+
+          <h3 class="media-featured-title">
+            The One With Security and Jessica Theodat
+          </h3>
+
+          <p class="media-featured-summary">
+            Why security and reliability teams can end up pulling in different
+            directions—and how better risk thinking and joint incident response
+            bring them back together.
+          </p>
+
+          <div class="media-topic">
+            Security × Reliability
+          </div>
+
+          <a
+            href="https://www.youtube.com/watch?v=5_pG_X72Y5w"
+            class="project-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch Video &rarr;
+          </a>
 
         </div>
 
-
-        <div id="speaking-container" class="grid grid-2">
-
-          <!-- Static semantic fallback.
-               main.js replaces these cards with data/speaking.json
-               when JavaScript is available. -->
+      </article>
 
 
-          <!-- Engineering with AI in the Stack -->
+      <!-- More appearances -->
 
-          <article class="card media-card">
+      <div class="media-more-header">
+        <h3>More conversations</h3>
+      </div>
 
-            <div class="media-header">
 
-              <span class="platform-badge">
-                Panel · Datadog DASH 2026
-              </span>
+      <div class="media-grid">
 
-              <time class="media-date" datetime="2026-06-10">
-                Jun 10, 2026
-              </time>
+        <!-- Engineering with AI -->
 
-            </div>
+        <article class="media-card">
+
+          <a
+            href="https://www.youtube.com/watch?v=7b0mgiYZsAk"
+            class="media-thumbnail-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch Engineering with AI in the Stack"
+          >
+            <img
+              src="https://img.youtube.com/vi/7b0mgiYZsAk/maxresdefault.jpg"
+              alt="Video thumbnail for Engineering with AI in the Stack"
+              class="media-thumbnail"
+              loading="lazy"
+            >
+
+            <span class="media-play" aria-hidden="true">
+              ▶
+            </span>
+          </a>
+
+          <div class="media-card-body">
+
+            <p class="media-meta">
+              Datadog DASH 2026 · Panel · Jun 2026
+            </p>
 
             <h3 class="media-title">
               Engineering with AI in the Stack
             </h3>
 
-            <p class="text-muted">
-              Panelist
+            <p class="media-summary">
+              What changes when AI enters the production engineering
+              stack—from code review and on-call to the places where human
+              judgment still matters.
             </p>
 
-            <p class="media-summary">
-              A candid conversation on integrating AI into production
-              engineering, including structural scaffolding, new bottlenecks
-              in code review and on-call, and where human judgment remains
-              critical.
-            </p>
+            <div class="media-topic">
+              AI &amp; Production Engineering
+            </div>
 
             <div class="media-footer">
-
               <a
                 href="https://www.youtube.com/watch?v=7b0mgiYZsAk"
                 class="project-link"
@@ -965,44 +1049,56 @@
               >
                 Watch Video &rarr;
               </a>
-
             </div>
 
-          </article>
+          </div>
+        </article>
 
 
-          <!-- Ask an SRE -->
+        <!-- Ask an SRE -->
 
-          <article class="card media-card">
+        <article class="media-card">
 
-            <div class="media-header">
+          <a
+            href="https://www.youtube.com/watch?v=ttwfXtJGzVg"
+            class="media-thumbnail-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch Ask an SRE: Lessons from the Frontlines"
+          >
+            <img
+              src="https://img.youtube.com/vi/ttwfXtJGzVg/maxresdefault.jpg"
+              alt="Video thumbnail for Ask an SRE: Lessons from the Frontlines"
+              class="media-thumbnail"
+              loading="lazy"
+            >
 
-              <span class="platform-badge">
-                Panel · Datadog DASH 2026
-              </span>
+            <span class="media-play" aria-hidden="true">
+              ▶
+            </span>
+          </a>
 
-              <time class="media-date" datetime="2026-06-10">
-                Jun 10, 2026
-              </time>
+          <div class="media-card-body">
 
-            </div>
+            <p class="media-meta">
+              Datadog DASH 2026 · Panel · Jun 2026
+            </p>
 
             <h3 class="media-title">
               Ask an SRE: Lessons from the Frontlines
             </h3>
 
-            <p class="text-muted">
-              Panelist
+            <p class="media-summary">
+              Lessons from the front lines of SRE: alert fatigue, incident
+              response, production failures, and adapting reliability
+              practices across different organizations.
             </p>
 
-            <p class="media-summary">
-              A discussion with SRE leaders on adapting reliability practices
-              across scale and culture, including alert fatigue, incident
-              response, and lessons from production outages.
-            </p>
+            <div class="media-topic">
+              SRE Practice
+            </div>
 
             <div class="media-footer">
-
               <a
                 href="https://www.youtube.com/watch?v=ttwfXtJGzVg"
                 class="project-link"
@@ -1011,90 +1107,56 @@
               >
                 Watch Video &rarr;
               </a>
-
             </div>
 
-          </article>
+          </div>
+        </article>
 
 
-          <!-- Security Prodcast -->
+        <!-- Life of an SRE -->
 
-          <article class="card media-card">
+        <article class="media-card">
 
-            <div class="media-header">
+          <a
+            href="https://www.youtube.com/watch?v=3Ip3bSbVshM"
+            class="media-thumbnail-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch Life of an SRE"
+          >
+            <img
+              src="https://img.youtube.com/vi/3Ip3bSbVshM/maxresdefault.jpg"
+              alt="Video thumbnail for Life of an SRE"
+              class="media-thumbnail"
+              loading="lazy"
+            >
 
-              <span class="platform-badge">
-                Podcast · Google SRE Prodcast
-              </span>
+            <span class="media-play" aria-hidden="true">
+              ▶
+            </span>
+          </a>
 
-              <time class="media-date" datetime="2025-05-21">
-                May 21, 2025
-              </time>
+          <div class="media-card-body">
 
-            </div>
-
-            <h3 class="media-title">
-              The One With Security and Jessica Theodat
-            </h3>
-
-            <p class="text-muted">
-              Featured Guest
+            <p class="media-meta">
+              Google SRE Prodcast · Guest · Oct 2023
             </p>
-
-            <p class="media-summary">
-              A conversation about the intersection of security and site
-              reliability engineering, including organizational tension,
-              systemic risk, and joint incident response.
-            </p>
-
-            <div class="media-footer">
-
-              <a
-                href="https://www.youtube.com/watch?v=5_pG_X72Y5w"
-                class="project-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Watch Video &rarr;
-              </a>
-
-            </div>
-
-          </article>
-
-
-          <!-- Life of an SRE -->
-
-          <article class="card media-card">
-
-            <div class="media-header">
-
-              <span class="platform-badge">
-                Podcast · Google SRE Prodcast
-              </span>
-
-              <time class="media-date" datetime="2023-10-03">
-                Oct 3, 2023
-              </time>
-
-            </div>
 
             <h3 class="media-title">
               Life of an SRE
             </h3>
 
-            <p class="text-muted">
-              Featured Guest
+            <p class="media-summary">
+              A conversation about senior technical leadership, mentorship,
+              sustainable careers, and representation in reliability
+              engineering.
             </p>
 
-            <p class="media-summary">
-              An inside look at navigating senior technical leadership in
-              reliability engineering, including mentorship, sustainable
-              work-life integration, and representation in SRE.
-            </p>
+            <div class="media-topic">
+              Technical Leadership
+            </div>
 
             <div class="media-footer">
-
               <a
                 href="https://www.youtube.com/watch?v=3Ip3bSbVshM"
                 class="project-link"
@@ -1103,27 +1165,34 @@
               >
                 Watch Video &rarr;
               </a>
-
             </div>
 
-          </article>
-
-        </div>
-
-
-        <div class="media-notice">
-
-          <p class="text-muted">
-            Organizing a conference, panel, podcast, or technical
-            conversation?
-            <a href="#contact">Get in touch.</a>
-          </p>
-
-        </div>
+          </div>
+        </article>
 
       </div>
-    </section>
 
+    </div>
+
+
+    <div class="media-invitation">
+
+      <p>
+        <strong>
+          Looking for a practitioner’s perspective?
+        </strong>
+        I’m open to conversations about reliability, security,
+        technical leadership, and digital privacy.
+      </p>
+
+      <a href="#contact" class="project-link">
+        Let’s talk &rarr;
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- =========================================================
          Contact
