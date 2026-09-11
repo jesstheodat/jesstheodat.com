@@ -5,20 +5,21 @@
 
 /* Custom Properties & Design Tokens */
 :root {
-  --bg-primary: #f8fafc;
+  --bg-primary: #f7f8fc;
   --bg-surface: #ffffff;
-  --bg-surface-hover: #f1f5f9;
+  --bg-surface-hover: #f0f3f8;
   
-  --border-subtle: rgba(154, 79, 18, 0.28);
-  --border-card: #dbe3ec;
+  --border-subtle: rgba(79, 70, 165, 0.22);
+  --border-card: #d9e0ea;
   
-  --text-primary: #172033;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
+  --text-primary: #182033;
+  --text-secondary: #4b5568;
+  --text-muted: #687386;
   
-  --accent-amber: #9a4f12;
-  --accent-amber-glow: rgba(154, 79, 18, 0.16);
-  --accent-blue: #0369a1;
+  --accent-primary: #4f46a5;
+  --accent-hover: #37307d;
+  --accent-soft: #eeedfa;
+  --accent-secondary: #0f6f7a;
   
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "Cascadia Code", monospace;
