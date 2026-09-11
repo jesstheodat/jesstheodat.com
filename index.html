@@ -112,7 +112,7 @@
       <nav class="nav-menu" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#journey" class="nav-link">Journey</a></li>
+          <li><a href="#journey" class="nav-link">Experience</a></li>
           <li><a href="#speaking" class="nav-link">Speaking</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
@@ -374,12 +374,8 @@
     </section>
 
 
-    <!-- =========================================================
-         Career Journey
-         ========================================================= -->
-
 <!-- =========================================================
-     Career Journey — Stack Layers
+     Career Journey — Interactive Engineering Stack
      ========================================================= -->
 
 <section id="journey" class="section bg-surface">
@@ -400,240 +396,478 @@
     </div>
 
 
-    <div class="career-stack">
+    <div class="career-stack-experience">
 
       <!-- =====================================================
-           Security
+           LEFT — Narrative Layers
            ===================================================== -->
 
-      <article class="career-layer career-layer-security">
+      <div
+        class="career-layer-list"
+        role="tablist"
+        aria-label="Career journey layers"
+      >
 
-        <div class="career-layer-header">
+        <!-- Layer 4 — Security -->
 
-          <div class="career-layer-heading">
-            <span class="career-layer-kicker">
-              Senior Site Reliability Engineer · Security Tech Lead
+        <article
+          class="career-layer-card is-active"
+          data-career-layer="security"
+        >
+          <button
+            class="career-layer-trigger"
+            type="button"
+            role="tab"
+            id="career-tab-security"
+            aria-selected="true"
+            aria-controls="career-panel-security"
+            data-career-target="security"
+          >
+            <span class="career-number">4</span>
+
+            <span class="career-trigger-copy">
+              <span class="career-role">
+                Senior Site Reliability Engineer · Security Tech Lead
+              </span>
+
+              <span class="career-layer-name">
+                Security
+              </span>
+
+              <span class="career-date">
+                Oct 2021 – Present
+              </span>
             </span>
 
-            <h3 class="career-layer-title">
-              Security
-            </h3>
+            <span class="career-trigger-indicator" aria-hidden="true">
+              +
+            </span>
+          </button>
+
+          <div
+            class="career-layer-details"
+            id="career-panel-security"
+            role="tabpanel"
+            aria-labelledby="career-tab-security"
+          >
+            <div class="career-layer-details-inner">
+
+              <p>
+                Security Tech Lead for core security infrastructure spanning
+                identity, access, and software supply chain security.
+              </p>
+
+              <p>
+                My work combines reliability engineering with security
+                architecture and technical leadership, including security
+                considerations across foundational on-premises compute,
+                network, and storage systems and work to reduce insider risk.
+              </p>
+
+              <div class="tag-group">
+                <span class="tag">Security Architecture</span>
+                <span class="tag">Site Reliability Engineering</span>
+                <span class="tag">Identity &amp; Access</span>
+                <span class="tag">Software Supply Chain Security</span>
+                <span class="tag">Infrastructure Security</span>
+                <span class="tag">Technical Leadership</span>
+              </div>
+
+            </div>
           </div>
+        </article>
 
-          <span class="career-layer-date">
-            2021–Present
-          </span>
 
-        </div>
+        <!-- Layer 3 — Reliability -->
 
-        <p class="career-layer-desc">
-          My work expanded from reliability into securing the infrastructure
-          and trust decisions underneath it. I’ve led efforts across enterprise
-          compute and storage security, insider-risk reduction, zero-trust
-          architecture, vulnerability management, and security capability
-          roadmaps across on-prem and cloud environments.
-        </p>
+        <article
+          class="career-layer-card"
+          data-career-layer="reliability"
+        >
+          <button
+            class="career-layer-trigger"
+            type="button"
+            role="tab"
+            id="career-tab-reliability"
+            aria-selected="false"
+            aria-controls="career-panel-reliability"
+            data-career-target="reliability"
+          >
+            <span class="career-number">3</span>
 
-        <p class="career-layer-desc">
-          Today, I work on Core Security Infrastructure spanning identity,
-          access, and software supply chain security—the systems that help
-          determine who gets access to what and which software can be trusted
-          to run.
-        </p>
+            <span class="career-trigger-copy">
+              <span class="career-role">
+                Site Reliability Engineer
+              </span>
 
-        <div class="tag-group">
-          <span class="tag">Security Architecture</span>
-          <span class="tag">Identity &amp; Access</span>
-          <span class="tag">Software Supply Chain</span>
-          <span class="tag">Zero Trust</span>
-          <span class="tag">Insider Risk</span>
-          <span class="tag">Technical Leadership</span>
-        </div>
+              <span class="career-layer-name">
+                Reliability
+              </span>
 
-      </article>
+              <span class="career-date">
+                Apr 2017 – Oct 2021
+              </span>
+            </span>
+
+            <span class="career-trigger-indicator" aria-hidden="true">
+              +
+            </span>
+          </button>
+
+          <div
+            class="career-layer-details"
+            id="career-panel-reliability"
+            role="tabpanel"
+            aria-labelledby="career-tab-reliability"
+            hidden
+          >
+            <div class="career-layer-details-inner">
+
+              <p>
+                Moved into site reliability engineering, building experience
+                in operating and reasoning about systems at scale and the
+                engineering practices required to keep them dependable.
+              </p>
+
+              <p>
+                This period formed much of the reliability-first systems
+                thinking that now informs my approach to security,
+                architecture, and technical risk.
+              </p>
+
+              <div class="tag-group">
+                <span class="tag">Site Reliability Engineering</span>
+                <span class="tag">Python</span>
+                <span class="tag">Infrastructure</span>
+                <span class="tag">Systems Engineering</span>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+
+        <!-- Layer 2 — Infrastructure -->
+
+        <article
+          class="career-layer-card"
+          data-career-layer="infrastructure"
+        >
+          <button
+            class="career-layer-trigger"
+            type="button"
+            role="tab"
+            id="career-tab-infrastructure"
+            aria-selected="false"
+            aria-controls="career-panel-infrastructure"
+            data-career-target="infrastructure"
+          >
+            <span class="career-number">2</span>
+
+            <span class="career-trigger-copy">
+              <span class="career-role">
+                Corporate Operations Engineer
+              </span>
+
+              <span class="career-layer-name">
+                Infrastructure
+              </span>
+
+              <span class="career-date">
+                Jun 2014 – Apr 2017
+              </span>
+            </span>
+
+            <span class="career-trigger-indicator" aria-hidden="true">
+              +
+            </span>
+          </button>
+
+          <div
+            class="career-layer-details"
+            id="career-panel-infrastructure"
+            role="tabpanel"
+            aria-labelledby="career-tab-infrastructure"
+            hidden
+          >
+            <div class="career-layer-details-inner">
+
+              <p>
+                Worked closer to the operational foundations of enterprise
+                technology, deepening my understanding of infrastructure,
+                systems behavior, and the relationship between engineering
+                decisions and the people who depend on them.
+              </p>
+
+              <div class="tag-group">
+                <span class="tag">Systems Engineering</span>
+                <span class="tag">Infrastructure</span>
+                <span class="tag">Operations</span>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+
+        <!-- Layer 1 — Systems & Applications -->
+
+        <article
+          class="career-layer-card"
+          data-career-layer="systems"
+        >
+          <button
+            class="career-layer-trigger"
+            type="button"
+            role="tab"
+            id="career-tab-systems"
+            aria-selected="false"
+            aria-controls="career-panel-systems"
+            data-career-target="systems"
+          >
+            <span class="career-number">1</span>
+
+            <span class="career-trigger-copy">
+              <span class="career-role">
+                Internal Technology Resident
+              </span>
+
+              <span class="career-layer-name">
+                Systems &amp; Applications
+              </span>
+
+              <span class="career-date">
+                Aug 2012 – May 2014
+              </span>
+            </span>
+
+            <span class="career-trigger-indicator" aria-hidden="true">
+              +
+            </span>
+          </button>
+
+          <div
+            class="career-layer-details"
+            id="career-panel-systems"
+            role="tabpanel"
+            aria-labelledby="career-tab-systems"
+            hidden
+          >
+            <div class="career-layer-details-inner">
+
+              <p>
+                Began my Google career working in internal technology,
+                developing the foundation in systems, infrastructure, and
+                operational problem solving that would eventually lead me
+                toward reliability engineering.
+              </p>
+
+              <div class="tag-group">
+                <span class="tag">Internal Technology</span>
+                <span class="tag">Systems</span>
+                <span class="tag">Infrastructure</span>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+
+        <!-- Privacy — expansion, not layer 5 -->
+
+        <article
+          class="career-layer-card career-layer-privacy"
+          data-career-layer="privacy"
+        >
+          <button
+            class="career-layer-trigger"
+            type="button"
+            role="tab"
+            id="career-tab-privacy"
+            aria-selected="false"
+            aria-controls="career-panel-privacy"
+            data-career-target="privacy"
+          >
+            <span class="career-expansion-icon" aria-hidden="true">
+              ↗
+            </span>
+
+            <span class="career-trigger-copy">
+              <span class="career-role">
+                Expanding the stack
+              </span>
+
+              <span class="career-layer-name">
+                Defensive Digital Privacy
+              </span>
+
+              <span class="career-date">
+                Emerging professional focus
+              </span>
+            </span>
+
+            <span class="career-trigger-indicator" aria-hidden="true">
+              +
+            </span>
+          </button>
+
+          <div
+            class="career-layer-details"
+            id="career-panel-privacy"
+            role="tabpanel"
+            aria-labelledby="career-tab-privacy"
+            hidden
+          >
+            <div class="career-layer-details-inner">
+
+              <p>
+                I’ve also been self-hosting, automating, and building
+                local-first systems for years. Privacy has long been part of
+                that practice. I’m now expanding that work professionally,
+                with a focus on helping executives and other high-risk
+                individuals understand how scattered pieces of digital
+                exposure can become meaningful risk once they’re connected.
+              </p>
+
+              <p>
+                <strong>
+                  Privacy risk often comes less from any single data point than
+                  from what becomes visible when those data points are connected.
+                </strong>
+                A location can become a movement pattern. Separate records can
+                reveal a network. A handful of unrelated details can begin to
+                describe behavior.
+              </p>
+
+              <div class="tag-group">
+                <span class="tag">Exposure Analysis</span>
+                <span class="tag">Privacy Hardening</span>
+                <span class="tag">Digital Risk</span>
+                <span class="tag">OSINT</span>
+              </div>
+
+            </div>
+          </div>
+        </article>
+
+      </div>
 
 
       <!-- =====================================================
-           Reliability
+           RIGHT — Isometric Stack
            ===================================================== -->
 
-      <article class="career-layer career-layer-reliability">
+      <div class="career-visual-column">
 
-        <div class="career-layer-header">
+        <div
+          class="career-isometric"
+          aria-label="Interactive visualization of accumulated career expertise"
+        >
 
-          <div class="career-layer-heading">
-            <span class="career-layer-kicker">
-              Site Reliability Engineer
-            </span>
+          <!-- Core through-line -->
 
-            <h3 class="career-layer-title">
-              Reliability
-            </h3>
+          <div class="career-core" aria-hidden="true">
+            <span class="career-core-arrow"></span>
           </div>
 
-          <span class="career-layer-date">
-            2017–Present
-          </span>
 
-        </div>
+          <!-- Layer 4 -->
 
-        <p class="career-layer-desc">
-          Moving into site reliability engineering changed how I think about
-          systems: failure is expected, dependencies matter, and good design has
-          to hold up under pressure—not just when everything is working as
-          intended.
-        </p>
+          <button
+            type="button"
+            class="career-plane career-plane-security is-active"
+            data-career-target="security"
+            aria-label="Show Security career layer"
+          >
+            <span class="career-plane-number">4</span>
 
-        <p class="career-layer-desc">
-          That reliability mindset still shapes how I approach security,
-          architecture, operational risk, and technical decision-making today.
-        </p>
-
-        <div class="tag-group">
-          <span class="tag">Site Reliability Engineering</span>
-          <span class="tag">Failure Modes</span>
-          <span class="tag">Resilient Systems</span>
-          <span class="tag">Operational Risk</span>
-        </div>
-
-      </article>
+            <span class="career-plane-copy">
+              <strong>Security</strong>
+              <small>Architecture · Identity · Trust</small>
+            </span>
+          </button>
 
 
-      <!-- =====================================================
-           Infrastructure
-           ===================================================== -->
+          <!-- Layer 3 -->
 
-      <article class="career-layer career-layer-infrastructure">
+          <button
+            type="button"
+            class="career-plane career-plane-reliability"
+            data-career-target="reliability"
+            aria-label="Show Reliability career layer"
+          >
+            <span class="career-plane-number">3</span>
 
-        <div class="career-layer-header">
+            <span class="career-plane-copy">
+              <strong>Reliability</strong>
+              <small>SRE · Resilience · Risk</small>
+            </span>
+          </button>
 
-          <div class="career-layer-heading">
-            <span class="career-layer-kicker">
-              Corporate Operations Engineer
+
+          <!-- Layer 2 -->
+
+          <button
+            type="button"
+            class="career-plane career-plane-infrastructure"
+            data-career-target="infrastructure"
+            aria-label="Show Infrastructure career layer"
+          >
+            <span class="career-plane-number">2</span>
+
+            <span class="career-plane-copy">
+              <strong>Infrastructure</strong>
+              <small>Compute · Storage · Networks</small>
+            </span>
+          </button>
+
+
+          <!-- Layer 1 -->
+
+          <button
+            type="button"
+            class="career-plane career-plane-systems"
+            data-career-target="systems"
+            aria-label="Show Systems and Applications career layer"
+          >
+            <span class="career-plane-number">1</span>
+
+            <span class="career-plane-copy">
+              <strong>Systems &amp; Apps</strong>
+              <small>Operations · Systems · Foundations</small>
+            </span>
+          </button>
+
+
+          <!-- Privacy branch -->
+
+          <div class="career-privacy-connector" aria-hidden="true"></div>
+
+          <button
+            type="button"
+            class="career-privacy-plane"
+            data-career-target="privacy"
+            aria-label="Show Defensive Digital Privacy focus"
+          >
+            <span class="career-privacy-eyebrow">
+              Expanding the stack
             </span>
 
-            <h3 class="career-layer-title">
-              Infrastructure
-            </h3>
-          </div>
-
-          <span class="career-layer-date">
-            2014–Present
-          </span>
+            <strong>
+              Defensive Digital Privacy
+            </strong>
+          </button>
 
         </div>
 
-        <p class="career-layer-desc">
-          Working close to enterprise infrastructure gave me a practical
-          understanding of compute, storage, networks, systems behavior, and
-          the operational realities behind large technical environments.
+
+        <p class="career-visual-caption">
+          Systems → infrastructure → reliability → security
         </p>
 
-        <p class="career-layer-desc">
-          That foundation became the bridge from operating systems to thinking
-          about reliability and, eventually, securing the infrastructure itself.
-        </p>
-
-        <div class="tag-group">
-          <span class="tag">Compute</span>
-          <span class="tag">Storage</span>
-          <span class="tag">Networks</span>
-          <span class="tag">Enterprise Systems</span>
-        </div>
-
-      </article>
-
-
-      <!-- =====================================================
-           Systems & Applications
-           ===================================================== -->
-
-      <article class="career-layer career-layer-systems">
-
-        <div class="career-layer-header">
-
-          <div class="career-layer-heading">
-            <span class="career-layer-kicker">
-              Web Developer · IT Consultant · Systems Administrator · Network Engineer
-            </span>
-
-            <h3 class="career-layer-title">
-              Systems &amp; Applications
-            </h3>
-          </div>
-
-          <span class="career-layer-date">
-            Early career onward
-          </span>
-
-        </div>
-
-        <p class="career-layer-desc">
-          Before reliability and security became the center of my work, I spent
-          years across the stack—building web applications, supporting users,
-          administering systems, and working with networks across startups,
-          universities, and enterprise environments.
-        </p>
-
-        <p class="career-layer-desc">
-          That range gave me a practical understanding of how applications,
-          networks, infrastructure, operations, and security fit together—and
-          where they tend to fail each other.
-        </p>
-
-        <div class="tag-group">
-          <span class="tag">Web Development</span>
-          <span class="tag">IT Consulting</span>
-          <span class="tag">Systems Administration</span>
-          <span class="tag">Network Engineering</span>
-        </div>
-
-      </article>
+      </div>
 
     </div>
-
-
-    <!-- =========================================================
-         Expanding the Stack
-         ========================================================= -->
-
-    <aside class="career-expansion" aria-label="Expanding professional focus">
-
-      <div class="career-expansion-marker" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M5 12h14"></path>
-          <path d="m13 6 6 6-6 6"></path>
-        </svg>
-      </div>
-
-      <div class="career-expansion-content">
-
-        <span class="career-layer-kicker">
-          Expanding the stack
-        </span>
-
-        <h3 class="career-expansion-title">
-          Defensive Digital Privacy
-        </h3>
-
-        <p>
-          I’m now applying the same systems and risk lens professionally to
-          digital exposure—helping executives and other high-risk individuals
-          understand how disconnected pieces of information become actionable
-          when they are combined, and reduce the information and access paths
-          that create meaningful risk.
-        </p>
-
-        <div class="tag-group">
-          <span class="tag">Exposure Analysis</span>
-          <span class="tag">Privacy Hardening</span>
-          <span class="tag">Digital Risk</span>
-          <span class="tag">OSINT</span>
-        </div>
-
-      </div>
-
-    </aside>
 
 
     <div class="career-stack-footer">
@@ -642,11 +876,14 @@
       <p>
         Each layer stayed with me. The stack just got deeper.
       </p>
+
+      <span class="career-stack-line" aria-hidden="true"></span>
     </div>
 
   </div>
 </section>
-
+    
+    
     <!-- =========================================================
          Selected Work
          Hidden until verified public work is ready.
