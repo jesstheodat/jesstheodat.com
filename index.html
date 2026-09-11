@@ -41,54 +41,72 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://jesstheodat.github.io/#person",
-        "name": "Jessica Theodat",
-        "alternateName": [
-          "Jess Theodat",
-          "jesstheodat"
-        ],
-        "jobTitle": "Senior Site Reliability Engineer and Security Tech Lead",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Google"
-        },
-        "description": "Reliability engineer, Security Tech Lead, and systems designer working across site reliability engineering, infrastructure security, identity and access, software supply chain security, and defensive digital privacy.",
-        "url": "https://jesstheodat.com/",
-        "sameAs": [
-          "https://github.com/jesstheodat",
-          "https://www.linkedin.com/in/siliconalleyjess"
-        ],
-        "knowsAbout": [
-          "Site Reliability Engineering",
-          "Security Architecture",
-          "Identity and Access Management",
-          "Software Supply Chain Security",
-          "Infrastructure Security",
-          "Zero Trust Architecture",
-          "Vulnerability Management",
-          "Systems Engineering",
-          "Defensive Digital Privacy",
-          "Self-Hosted Infrastructure"
-        ]
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://jesstheodat.com/#person",
+      "name": "Jessica Theodat",
+      "alternateName": [
+        "Jess Theodat",
+        "jesstheodat"
+      ],
+      "url": "https://jesstheodat.com/",
+      "mainEntityOfPage": {
+        "@id": "https://jesstheodat.com/#webpage"
       },
-      {
-        "@type": "ProfilePage",
-        "@id": "https://jesstheodat.github.io/#webpage",
-        "url": "https://jesstheodat.github.io/",
-        "name": "Jess Theodat",
-        "mainEntity": {
-          "@id": "https://jesstheodat.github.io/#person"
-        }
+      "jobTitle": "Senior Site Reliability Engineer and Security Tech Lead",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "description": "Reliability engineer, Security Tech Lead, and systems designer working across site reliability engineering, infrastructure security, identity and access, software supply chain security, and defensive digital privacy.",
+      "sameAs": [
+        "https://github.com/jesstheodat",
+        "https://www.linkedin.com/in/siliconalleyjess"
+      ],
+      "knowsAbout": [
+        "Site Reliability Engineering",
+        "Security Architecture",
+        "Identity and Access Management",
+        "Software Supply Chain Security",
+        "Infrastructure Security",
+        "Zero Trust Architecture",
+        "Vulnerability Management",
+        "Systems Engineering",
+        "Defensive Digital Privacy",
+        "Self-Hosted Infrastructure"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jesstheodat.com/#website",
+      "url": "https://jesstheodat.com/",
+      "name": "Jess Theodat",
+      "publisher": {
+        "@id": "https://jesstheodat.com/#person"
       }
-    ]
-  }
-  </script>
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://jesstheodat.com/#webpage",
+      "url": "https://jesstheodat.com/",
+      "name": "Jess Theodat | Systems Reliability & Infrastructure Security",
+      "isPartOf": {
+        "@id": "https://jesstheodat.com/#website"
+      },
+      "about": {
+        "@id": "https://jesstheodat.com/#person"
+      },
+      "mainEntity": {
+        "@id": "https://jesstheodat.com/#person"
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
