@@ -591,277 +591,6 @@ p strong {
   color: var(--text-secondary);
 }
 
-
-/* ==========================================================================
-   Career Journey — Stack Layers
-   ========================================================================== */
-
-.career-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  max-width: 940px;
-  margin: 0 auto;
-}
-
-
-/* ==========================================================================
-   Career Layer
-   ========================================================================== */
-
-.career-layer {
-  position: relative;
-  padding: 1.65rem 1.85rem;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.career-layer::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background-color: var(--accent-primary);
-}
-
-.career-layer:hover {
-  border-color: var(--border-subtle);
-  box-shadow: 0 7px 20px rgba(24, 32, 51, 0.06);
-}
-
-
-/* ==========================================================================
-   Layer Geometry
-
-   The narrowing shape is meant to communicate accumulated depth:
-   later domains sit on top of foundations that remain part of the work.
-   ========================================================================== */
-
-.career-layer-security {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.career-layer-reliability {
-  margin-left: 2.25rem;
-  margin-right: 2.25rem;
-}
-
-.career-layer-infrastructure {
-  margin-left: 4.5rem;
-  margin-right: 4.5rem;
-}
-
-.career-layer-systems {
-  margin-left: 6.75rem;
-  margin-right: 6.75rem;
-}
-
-
-/* ==========================================================================
-   Layer Accents
-   ========================================================================== */
-
-.career-layer-security::before {
-  background-color: var(--accent-primary);
-}
-
-.career-layer-reliability::before {
-  background-color: var(--accent-secondary);
-}
-
-.career-layer-infrastructure::before {
-  background-color: var(--text-secondary);
-}
-
-.career-layer-systems::before {
-  background-color: var(--text-muted);
-}
-
-
-/* ==========================================================================
-   Layer Header
-   ========================================================================== */
-
-.career-layer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin-bottom: 0.9rem;
-}
-
-.career-layer-heading {
-  min-width: 0;
-}
-
-.career-layer-kicker {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  color: var(--accent-primary);
-}
-
-.career-layer-title {
-  margin: 0;
-  font-size: 1.4rem;
-  line-height: 1.2;
-}
-
-.career-layer-date {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-
-/* ==========================================================================
-   Layer Content
-   ========================================================================== */
-
-.career-layer-desc {
-  max-width: 780px;
-  margin-bottom: 0.85rem;
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-.career-layer-desc:last-of-type {
-  margin-bottom: 1rem;
-}
-
-
-/* ==========================================================================
-   Privacy Expansion
-
-   This intentionally sits outside the nested stack so it reads as an
-   emerging application of the existing experience rather than a new
-   "highest" layer.
-   ========================================================================== */
-
-.career-expansion {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 1rem;
-  max-width: 860px;
-  margin: 2.25rem auto 0;
-  padding: 1.4rem 1.5rem;
-  background-color: var(--accent-soft);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-}
-
-.career-expansion-marker {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  margin-top: 0.1rem;
-  border-radius: 50%;
-  background-color: var(--bg-surface);
-  color: var(--accent-primary);
-}
-
-.career-expansion-marker svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none;
-}
-
-.career-expansion-title {
-  margin: 0 0 0.55rem;
-  font-size: 1.15rem;
-}
-
-.career-expansion p {
-  max-width: 740px;
-  margin-bottom: 0.9rem;
-  font-size: 0.925rem;
-  line-height: 1.6;
-}
-
-
-/* ==========================================================================
-   Career Closing Line
-   ========================================================================== */
-
-.career-stack-footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  max-width: 940px;
-  margin: 2rem auto 0;
-}
-
-.career-stack-line {
-  flex: 1;
-  height: 1px;
-  background-color: var(--border-card);
-}
-
-.career-stack-footer p {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-
-/* ==========================================================================
-   Career Journey — Responsive
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  .career-layer-security,
-  .career-layer-reliability,
-  .career-layer-infrastructure,
-  .career-layer-systems {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .career-layer {
-    padding: 1.4rem 1.5rem;
-  }
-
-  .career-layer-header {
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .career-layer-date {
-    white-space: normal;
-  }
-
-  .career-expansion {
-    grid-template-columns: 1fr;
-  }
-
-  .career-stack-footer {
-    align-items: flex-start;
-  }
-
-  .career-stack-footer p {
-    white-space: normal;
-  }
-}
-
 /* ==========================================================================
    Tags
    ========================================================================== */
@@ -1279,6 +1008,19 @@ p strong {
 
 @media (hover: hover) and (pointer: fine) {
 
+.career-layer-card:not(.is-active):hover {
+    border-color: var(--border-subtle);
+    background: var(--bg-surface-hover);
+  }
+
+  .career-plane:hover {
+    transform:
+      translateX(-50%)
+      rotateX(52deg)
+      rotateZ(-20deg)
+      translateZ(12px);
+  }
+
   .media-thumbnail-link:hover .media-thumbnail,
   .media-featured-thumbnail:hover img {
     transform: scale(1.025);
@@ -1438,7 +1180,6 @@ p strong {
   align-items: center;
 }
 
-
 /* ==========================================================================
    Narrative Cards
    ========================================================================== */
@@ -1491,11 +1232,14 @@ p strong {
   grid-template-columns: 40px minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
+
   width: 100%;
   padding: 1.15rem 1.25rem;
+
   border: 0;
   background: transparent;
   color: inherit;
+
   text-align: left;
   font: inherit;
   cursor: pointer;
@@ -1506,11 +1250,41 @@ p strong {
   outline-offset: -3px;
 }
 
+.career-layer-name {
+  font-size: 1.1rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.career-layer-card.is-active .career-trigger-indicator {
+  transform: rotate(45deg);
+  color: var(--accent-primary);
+}
+
+
+/* Expanded narrative */
+
+.career-layer-details {
+  border-top: 1px solid var(--border-card);
+}
+
+.career-layer-details-inner {
+  padding: 1rem 1.25rem 1.4rem 4.75rem;
+}
+
+.career-layer-details p {
+  max-width: 680px;
+  font-size: 0.925rem;
+  line-height: 1.65;
+}
+
+.career-layer-details .tag-group {
+  margin-top: 1rem;
+}
 
 /* Number badge */
 
-.career-number,
-.career-expansion-icon {
+.career-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1563,12 +1337,6 @@ p strong {
   color: var(--text-muted);
 }
 
-.career-layer-name {
-  font-size: 1.1rem;
-  font-weight: 650;
-  color: var(--text-primary);
-}
-
 .career-date {
   margin-top: 0.15rem;
   font-size: 0.78rem;
@@ -1580,50 +1348,6 @@ p strong {
   line-height: 1;
   color: var(--text-muted);
   transition: transform var(--transition-fast);
-}
-
-.career-layer-card.is-active .career-trigger-indicator {
-  transform: rotate(45deg);
-  color: var(--accent-primary);
-}
-
-
-/* Expanded narrative */
-
-.career-layer-details {
-  border-top: 1px solid var(--border-card);
-}
-
-.career-layer-details-inner {
-  padding: 1rem 1.25rem 1.4rem 4.75rem;
-}
-
-.career-layer-details p {
-  max-width: 680px;
-  font-size: 0.925rem;
-  line-height: 1.65;
-}
-
-.career-layer-details .tag-group {
-  margin-top: 1rem;
-}
-
-
-/* ==========================================================================
-   Privacy Expansion Card
-   ========================================================================== */
-
-.career-layer-privacy {
-  margin-top: 0.5rem;
-  background: var(--accent-soft);
-  border-color: var(--border-subtle);
-  border-left-color: #7770b8;
-}
-
-.career-expansion-icon {
-  background: var(--bg-surface);
-  color: var(--accent-primary);
-  border: 1px solid var(--border-subtle);
 }
 
 
@@ -1638,7 +1362,7 @@ p strong {
 }
 
 .career-isometric {
-  --plane-width: 310px;
+  --plane-width: 420px;
   --plane-height: 92px;
 
   position: relative;
@@ -1838,81 +1562,6 @@ p strong {
 }
 
 
-/* ==========================================================================
-   Privacy Branch
-   ========================================================================== */
-
-.career-privacy-connector {
-  position: absolute;
-  z-index: 0;
-  top: 103px;
-  left: 65%;
-  width: 82px;
-  height: 2px;
-  background: rgba(119, 112, 184, 0.5);
-  transform: rotate(-18deg);
-  transform-origin: left center;
-}
-
-.career-privacy-connector::after {
-  content: "";
-  position: absolute;
-  right: -5px;
-  top: -4px;
-  width: 9px;
-  height: 9px;
-  border-top: 2px solid rgba(119, 112, 184, 0.7);
-  border-right: 2px solid rgba(119, 112, 184, 0.7);
-  transform: rotate(45deg);
-}
-
-.career-privacy-plane {
-  position: absolute;
-  z-index: 4;
-  top: 30px;
-  right: -20px;
-
-  width: 180px;
-  padding: 0.9rem 1rem;
-
-  border: 1px solid rgba(119, 112, 184, 0.34);
-  border-radius: 10px;
-
-  background: rgba(238, 237, 250, 0.92);
-  color: var(--text-primary);
-
-  text-align: left;
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(24, 32, 51, 0.08);
-
-  transition:
-    transform var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
-}
-
-.career-privacy-plane:hover,
-.career-privacy-plane.is-active {
-  transform: translateY(-4px);
-  border-color: #7770b8;
-  box-shadow: 0 14px 28px rgba(24, 32, 51, 0.11);
-}
-
-.career-privacy-eyebrow {
-  display: block;
-  margin-bottom: 0.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--accent-primary);
-}
-
-.career-privacy-plane strong {
-  font-size: 0.8rem;
-}
-
 
 /* Caption */
 
@@ -1933,7 +1582,8 @@ p strong {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 3.5rem;
+  max-width: 940px;
+  margin: 3.5rem auto 0;
 }
 
 .career-stack-footer p {
@@ -1950,26 +1600,6 @@ p strong {
   background: var(--border-card);
 }
 
-
-/* ==========================================================================
-   Hover — pointer devices only
-   ========================================================================== */
-
-@media (hover: hover) and (pointer: fine) {
-
-  .career-layer-card:not(.is-active):hover {
-    border-color: var(--border-subtle);
-    background: var(--bg-surface-hover);
-  }
-
-  .career-plane:hover {
-    transform:
-      translateX(-50%)
-      rotateX(52deg)
-      rotateZ(-20deg)
-      translateZ(12px);
-  }
-}
 
 
 /* ==========================================================================
@@ -2016,27 +1646,31 @@ p strong {
     --plane-width: min(250px, 72vw);
     --plane-height: 72px;
 
-    height: 385px;
+    height: 420px;
   }
 
   .career-plane {
     padding: 0.75rem 1rem;
   }
 
+  .career-plane-privacy {
+    top: 30px;
+  }
+
   .career-plane-security {
-    top: 44px;
+    top: 96px;
   }
 
   .career-plane-reliability {
-    top: 118px;
+    top: 162px;
   }
 
   .career-plane-infrastructure {
-    top: 192px;
+    top: 228px;
   }
 
   .career-plane-systems {
-    top: 266px;
+    top: 294px;
   }
 
   .career-core {
@@ -2046,27 +1680,6 @@ p strong {
 
   .career-plane-copy small {
     display: none;
-  }
-
-  .career-privacy-plane {
-    top: 5px;
-    right: 0;
-    width: 145px;
-    padding: 0.7rem 0.8rem;
-  }
-
-  .career-privacy-connector {
-    display: none;
-  }
-
-  .career-layer-trigger {
-    grid-template-columns: 36px minmax(0, 1fr) auto;
-    gap: 0.8rem;
-    padding: 1rem;
-  }
-
-  .career-layer-details-inner {
-    padding: 1rem 1rem 1.25rem;
   }
 
   .career-stack-footer {
@@ -2087,7 +1700,6 @@ p strong {
 @media (prefers-reduced-motion: reduce) {
 
   .career-plane,
-  .career-privacy-plane,
   .career-layer-card,
   .career-trigger-indicator {
     transition: none;
