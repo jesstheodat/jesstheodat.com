@@ -1362,40 +1362,6 @@ p strong {
    Contact & Footer
    ========================================================================== */
 
-.contact-box {
-  text-align: center;
-  padding: 3.5rem 2rem;
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.contact-lead {
-  font-size: 1.15rem;
-  margin-bottom: 2rem;
-}
-
-.contact-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.contact-placeholder code {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  background-color: #f1f5f9;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  border: 1px dashed var(--border-subtle);
-  color: var(--accent-primary);
-}
-
-.disclaimer-note {
-  margin-top: 2.5rem;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
 
 .site-footer {
   padding: 2.5rem 0;
@@ -2126,4 +2092,38 @@ p strong {
   .career-trigger-indicator {
     transition: none;
   }
+}
+
+
+.contact-section {
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-links a {
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+.contact-disclaimer {
+  max-width: 680px;
+  margin: 2.25rem auto 0;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid var(--border-card);
+
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
