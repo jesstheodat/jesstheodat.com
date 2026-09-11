@@ -2,11 +2,12 @@
  * JESS THEODAT — PERSONAL WEBSITE JAVASCRIPT
  *
  * Features:
- * - Dynamic rendering of verified speaking appearances from data/speaking.json
- * - YouTube/static thumbnail support for speaking cards
- * - Current year dynamic footer update
- * - Accessible UI enhancements
+ * - Dynamic Speaking & Media rendering
+ * - Interactive Career Stack
+ * - Current year footer update
+ * - Accessible keyboard and pointer interactions
  */
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Set current copyright year
@@ -36,158 +37,74 @@ async function loadSpeakingAppearances() {
 
     const appearances = await response.json();
 
-    // Render only when structured data contains appearances.
-    // Otherwise preserve the static HTML fallback in index.html.
     if (!Array.isArray(appearances) || appearances.length === 0) {
       return;
     }
 
+
+    /*
+     * Choose one featured appearance.
+     *
+     * speaking.json controls the editorial choice.
+     * If none is explicitly featured, use the first item.
+     */
+
+    const featured =
+      appearances.find(item => item.featured === true)
+      || appearances[0];
+
+    const remaining =
+      appearances.filter(item => item !== featured);
+
+
     container.innerHTML = '';
 
-    appearances.forEach(item => {
-      const card = document.createElement('article');
-      card.className = 'card media-card';
 
-      const platformLabel = escapeHtml(
-        item.platform || item.type || 'Media'
-      );
+    /* ==========================================================
+       Featured Appearance
+       ========================================================== */
 
-      const dateValue = escapeHtml(item.date || '');
-      const dateLabel = formatDate(item.date);
+    container.appendChild(
+      createFeaturedAppearance(featured)
+    );
 
-      const title = escapeHtml(item.title || '');
 
-      const eventName = escapeHtml(
-        item.event || item.publication || ''
-      );
+    /* ==========================================================
+       More Conversations
+       ========================================================== */
 
-      const role = escapeHtml(item.role || '');
-      const summary = escapeHtml(item.summary || '');
+    if (remaining.length > 0) {
+      const heading = document.createElement('div');
 
-      const url = item.url
-        ? sanitizeUrl(item.url)
-        : null;
+      heading.className = 'media-more-header';
 
-      const thumbnail = item.thumbnail
-        ? sanitizeUrl(item.thumbnail)
-        : null;
-
-      const mediaType = String(item.type || '').toLowerCase();
-
-      const actionLabel =
-        mediaType === 'podcast' && !isYouTubeUrl(url)
-          ? 'Listen &rarr;'
-          : 'Watch Video &rarr;';
-
-      const thumbnailMarkup =
-        thumbnail && url
-          ? `
-            <a
-              href="${url}"
-              class="media-thumbnail-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Watch ${title}"
-            >
-              <img
-                src="${thumbnail}"
-                alt="Video thumbnail for ${title}"
-                class="media-thumbnail"
-                loading="lazy"
-                decoding="async"
-              >
-
-              <span
-                class="media-play"
-                aria-hidden="true"
-              >
-                ▶
-              </span>
-            </a>
-          `
-          : thumbnail
-            ? `
-              <div class="media-thumbnail-link media-thumbnail-static">
-                <img
-                  src="${thumbnail}"
-                  alt="Thumbnail for ${title}"
-                  class="media-thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-            `
-            : '';
-
-      const eventMarkup = eventName
-        ? ` · ${eventName}`
-        : '';
-
-      const dateMarkup = dateLabel
-        ? `
-          <time
-            class="media-date"
-            ${dateValue ? `datetime="${dateValue}"` : ''}
-          >
-            ${escapeHtml(dateLabel)}
-          </time>
-        `
-        : '';
-
-      const roleMarkup = role
-        ? `<p class="text-muted media-role">${role}</p>`
-        : '';
-
-      const summaryMarkup = summary
-        ? `<p class="media-summary">${summary}</p>`
-        : '';
-
-      const actionMarkup = url
-        ? `
-          <div class="media-footer">
-            <a
-              href="${url}"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              ${actionLabel}
-            </a>
-          </div>
-        `
-        : '';
-
-      card.innerHTML = `
-        ${thumbnailMarkup}
-
-        <div class="media-card-body">
-
-          <div class="media-header">
-
-            <span class="platform-badge">
-              ${platformLabel}${eventMarkup}
-            </span>
-
-            ${dateMarkup}
-
-          </div>
-
-          <h3 class="media-title">
-            ${title}
-          </h3>
-
-          ${roleMarkup}
-          ${summaryMarkup}
-          ${actionMarkup}
-
-        </div>
+      heading.innerHTML = `
+        <h3>More conversations</h3>
       `;
 
-      container.appendChild(card);
-    });
+      container.appendChild(heading);
+
+
+      const grid = document.createElement('div');
+
+      grid.className = 'media-grid';
+
+
+      remaining.forEach(item => {
+        grid.appendChild(
+          createMediaCard(item)
+        );
+      });
+
+
+      container.appendChild(grid);
+    }
 
   } catch (error) {
-    // Preserve the static HTML embedded in index.html as a resilient fallback.
+    /*
+     * Keep the semantic HTML already embedded
+     * in index.html if JSON fails.
+     */
     console.info(
       'Using static fallback for speaking engagements.',
       error
@@ -197,24 +114,299 @@ async function loadSpeakingAppearances() {
 
 
 /**
- * Format ISO-style dates from speaking.json into a short,
- * human-readable representation such as "Jun 10, 2026".
+ * Featured editorial appearance.
  */
-function formatDate(dateString) {
+function createFeaturedAppearance(item) {
+  const article = document.createElement('article');
+
+  article.className = 'media-featured';
+
+
+  const title =
+    escapeHtml(item.title || '');
+
+  const event =
+    escapeHtml(item.event || item.publication || '');
+
+  const role =
+    escapeHtml(item.role || '');
+
+  const topic =
+    escapeHtml(item.topic || '');
+
+  const summary =
+    escapeHtml(item.summary || '');
+
+  const dateLabel =
+    formatMediaMonth(item.date);
+
+  const url =
+    item.url
+      ? sanitizeUrl(item.url)
+      : null;
+
+  const thumbnail =
+    item.thumbnail
+      ? sanitizeUrl(item.thumbnail)
+      : null;
+
+
+  const meta = [
+    event,
+    role,
+    dateLabel
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
+
+  article.innerHTML = `
+    ${
+      thumbnail && url
+        ? `
+          <a
+            href="${url}"
+            class="media-featured-thumbnail"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch ${title}"
+          >
+            <img
+              src="${thumbnail}"
+              alt="Video thumbnail for ${title}"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <span
+              class="media-play media-play-large"
+              aria-hidden="true"
+            >
+              ▶
+            </span>
+          </a>
+        `
+        : ''
+    }
+
+
+    <div class="media-featured-content">
+
+      <span class="media-featured-label">
+        Featured conversation
+      </span>
+
+      ${
+        meta
+          ? `<p class="media-meta">${meta}</p>`
+          : ''
+      }
+
+      <h3 class="media-featured-title">
+        ${title}
+      </h3>
+
+      ${
+        summary
+          ? `
+            <p class="media-featured-summary">
+              ${summary}
+            </p>
+          `
+          : ''
+      }
+
+      ${
+        topic
+          ? `
+            <div class="media-topic">
+              ${topic}
+            </div>
+          `
+          : ''
+      }
+
+      ${
+        url
+          ? `
+            <a
+              href="${url}"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch Video &rarr;
+            </a>
+          `
+          : ''
+      }
+
+    </div>
+  `;
+
+
+  return article;
+}
+
+
+/**
+ * Secondary appearance card.
+ */
+function createMediaCard(item) {
+  const article = document.createElement('article');
+
+  article.className = 'media-card';
+
+
+  const title =
+    escapeHtml(item.title || '');
+
+  const event =
+    escapeHtml(item.event || item.publication || '');
+
+  const role =
+    escapeHtml(item.role || '');
+
+  const topic =
+    escapeHtml(item.topic || '');
+
+  const summary =
+    escapeHtml(item.summary || '');
+
+  const dateLabel =
+    formatMediaMonth(item.date);
+
+  const url =
+    item.url
+      ? sanitizeUrl(item.url)
+      : null;
+
+  const thumbnail =
+    item.thumbnail
+      ? sanitizeUrl(item.thumbnail)
+      : null;
+
+
+  const meta = [
+    event,
+    role,
+    dateLabel
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
+
+  article.innerHTML = `
+    ${
+      thumbnail && url
+        ? `
+          <a
+            href="${url}"
+            class="media-thumbnail-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch ${title}"
+          >
+            <img
+              src="${thumbnail}"
+              alt="Video thumbnail for ${title}"
+              class="media-thumbnail"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <span
+              class="media-play"
+              aria-hidden="true"
+            >
+              ▶
+            </span>
+          </a>
+        `
+        : ''
+    }
+
+
+    <div class="media-card-body">
+
+      ${
+        meta
+          ? `<p class="media-meta">${meta}</p>`
+          : ''
+      }
+
+      <h3 class="media-title">
+        ${title}
+      </h3>
+
+      ${
+        summary
+          ? `
+            <p class="media-summary">
+              ${summary}
+            </p>
+          `
+          : ''
+      }
+
+      ${
+        topic
+          ? `
+            <div class="media-topic">
+              ${topic}
+            </div>
+          `
+          : ''
+      }
+
+      ${
+        url
+          ? `
+            <div class="media-footer">
+              <a
+                href="${url}"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Video &rarr;
+              </a>
+            </div>
+          `
+          : ''
+      }
+
+    </div>
+  `;
+
+
+  return article;
+}
+
+
+/**
+ * Compact date for media metadata:
+ * "2025-05-21" -> "May 2025"
+ */
+function formatMediaMonth(dateString) {
   if (!dateString) return '';
 
-  const date = new Date(`${dateString}T00:00:00`);
+  const date =
+    new Date(`${dateString}T00:00:00`);
 
   if (Number.isNaN(date.getTime())) {
     return dateString;
   }
 
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric'
-  }).format(date);
+  return new Intl.DateTimeFormat(
+    'en-US',
+    {
+      month: 'short',
+      year: 'numeric'
+    }
+  ).format(date);
 }
+
 
 
 /**
@@ -242,37 +434,7 @@ function sanitizeUrl(value) {
 }
 
 
-/**
- * Used to choose a more accurate action label.
- */
-function isYouTubeUrl(url) {
-  if (!url) return false;
 
-  try {
-    const decodedUrl = decodeHtml(url);
-    const parsed = new URL(decodedUrl);
-
-    return (
-      parsed.hostname === 'youtube.com' ||
-      parsed.hostname === 'www.youtube.com' ||
-      parsed.hostname === 'youtu.be' ||
-      parsed.hostname === 'www.youtu.be'
-    );
-
-  } catch {
-    return false;
-  }
-}
-
-
-/**
- * Decode text previously escaped for HTML.
- */
-function decodeHtml(str) {
-  const textarea = document.createElement('textarea');
-  textarea.innerHTML = str;
-  return textarea.value;
-}
 
 
 /**
@@ -287,19 +449,18 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-
 /**
  * Interactive Career Stack
  *
  * Synchronizes:
  * - career narrative cards
  * - isometric stack planes
- * - defensive privacy branch
  *
  * Click/tap is persistent.
  * Hover previews a layer on pointer devices.
  * Keyboard interaction works through native buttons.
  */
+
 function initCareerStack() {
   const section = document.getElementById('journey');
 
@@ -314,14 +475,24 @@ function initCareerStack() {
   );
 
   const visualControls = Array.from(
-    section.querySelectorAll(
-      '.career-plane, .career-privacy-plane'
-    )
+    section.querySelectorAll('.career-plane')
   );
 
   if (!cards.length || !triggers.length) return;
 
   let selectedLayer = 'security';
+
+  function previewLayer(layer) {
+    visualControls.forEach(control => {
+      const isActive =
+        control.dataset.careerTarget === layer;
+  
+      control.classList.toggle(
+        'is-active',
+        isActive
+      );
+    });
+  }
 
 
   function getCard(layer) {
@@ -398,12 +569,6 @@ function initCareerStack() {
     }
   }
 
-
-  function restoreSelectedLayer() {
-    setActiveLayer(selectedLayer, {
-      persist: false
-    });
-  }
 
 
   /*
@@ -488,47 +653,37 @@ function initCareerStack() {
     );
 
   if (hoverQuery.matches) {
-
     cards.forEach(card => {
       const layer =
         card.dataset.careerLayer;
-
+  
       card.addEventListener(
         'mouseenter',
-        () => {
-          setActiveLayer(layer, {
-            persist: false
-          });
-        }
+        () => previewLayer(layer)
       );
-
+  
       card.addEventListener(
         'mouseleave',
-        restoreSelectedLayer
+        () => previewLayer(selectedLayer)
       );
     });
 
 
-    visualControls.forEach(control => {
+   visualControls.forEach(control => {
       const layer =
         control.dataset.careerTarget;
-
+  
       control.addEventListener(
         'mouseenter',
-        () => {
-          setActiveLayer(layer, {
-            persist: false
-          });
-        }
+        () => previewLayer(layer)
       );
-
+  
       control.addEventListener(
         'mouseleave',
-        restoreSelectedLayer
+        () => previewLayer(selectedLayer)
       );
     });
   }
-
 
   /*
    * Initial state.
