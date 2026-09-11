@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jesstheodat.github.io/sitemap.xml
+Sitemap: https://jesstheodat.com/sitemap.xml
