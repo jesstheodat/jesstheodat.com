@@ -504,8 +504,36 @@ p strong {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.4rem;
   margin-top: 1rem;
+}
+
+.domain-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.domain-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+.domain-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
 }
 
 .domain-name {
@@ -517,7 +545,9 @@ p strong {
 
 .domain-desc {
   display: block;
+  margin-top: 0.2rem;
   font-size: 0.875rem;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
