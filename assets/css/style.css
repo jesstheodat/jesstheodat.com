@@ -553,48 +553,274 @@ p strong {
 
 
 /* ==========================================================================
-   Timeline / Career Journey
+   Career Journey — Stack Layers
    ========================================================================== */
 
-.timeline {
+.career-stack {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  position: relative;
-  margin-top: 1rem;
+  gap: 0.85rem;
+  max-width: 940px;
+  margin: 0 auto;
 }
 
-.timeline-item {
+
+/* ==========================================================================
+   Career Layer
+   ========================================================================== */
+
+.career-layer {
   position: relative;
+  padding: 1.65rem 1.85rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
 }
 
-.timeline-header {
+.career-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background-color: var(--accent-primary);
+}
+
+.career-layer:hover {
+  border-color: var(--border-subtle);
+  box-shadow: 0 7px 20px rgba(24, 32, 51, 0.06);
+}
+
+
+/* ==========================================================================
+   Layer Geometry
+
+   The narrowing shape is meant to communicate accumulated depth:
+   later domains sit on top of foundations that remain part of the work.
+   ========================================================================== */
+
+.career-layer-security {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.career-layer-reliability {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
+.career-layer-infrastructure {
+  margin-left: 4.5rem;
+  margin-right: 4.5rem;
+}
+
+.career-layer-systems {
+  margin-left: 6.75rem;
+  margin-right: 6.75rem;
+}
+
+
+/* ==========================================================================
+   Layer Accents
+   ========================================================================== */
+
+.career-layer-security::before {
+  background-color: var(--accent-primary);
+}
+
+.career-layer-reliability::before {
+  background-color: var(--accent-secondary);
+}
+
+.career-layer-infrastructure::before {
+  background-color: var(--text-secondary);
+}
+
+.career-layer-systems::before {
+  background-color: var(--text-muted);
+}
+
+
+/* ==========================================================================
+   Layer Header
+   ========================================================================== */
+
+.career-layer-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  margin-bottom: 0.9rem;
 }
 
-.role-title {
-  font-size: 1.2rem;
-  color: var(--text-primary);
+.career-layer-heading {
+  min-width: 0;
 }
 
-.role-org {
+.career-layer-kicker {
   display: block;
+  margin-bottom: 0.3rem;
   font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
   color: var(--accent-primary);
-  font-size: 0.9rem;
 }
 
-.role-date {
+.career-layer-title {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+.career-layer-date {
+  flex-shrink: 0;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  white-space: nowrap;
 }
 
+
+/* ==========================================================================
+   Layer Content
+   ========================================================================== */
+
+.career-layer-desc {
+  max-width: 780px;
+  margin-bottom: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.career-layer-desc:last-of-type {
+  margin-bottom: 1rem;
+}
+
+
+/* ==========================================================================
+   Privacy Expansion
+
+   This intentionally sits outside the nested stack so it reads as an
+   emerging application of the existing experience rather than a new
+   "highest" layer.
+   ========================================================================== */
+
+.career-expansion {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 1rem;
+  max-width: 860px;
+  margin: 2.25rem auto 0;
+  padding: 1.4rem 1.5rem;
+  background-color: var(--accent-soft);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.career-expansion-marker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  margin-top: 0.1rem;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  color: var(--accent-primary);
+}
+
+.career-expansion-marker svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.career-expansion-title {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+}
+
+.career-expansion p {
+  max-width: 740px;
+  margin-bottom: 0.9rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   Career Closing Line
+   ========================================================================== */
+
+.career-stack-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 940px;
+  margin: 2rem auto 0;
+}
+
+.career-stack-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-card);
+}
+
+.career-stack-footer p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+
+/* ==========================================================================
+   Career Journey — Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .career-layer-security,
+  .career-layer-reliability,
+  .career-layer-infrastructure,
+  .career-layer-systems {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .career-layer {
+    padding: 1.4rem 1.5rem;
+  }
+
+  .career-layer-header {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .career-layer-date {
+    white-space: normal;
+  }
+
+  .career-expansion {
+    grid-template-columns: 1fr;
+  }
+
+  .career-stack-footer {
+    align-items: flex-start;
+  }
+
+  .career-stack-footer p {
+    white-space: normal;
+  }
+}
 
 /* ==========================================================================
    Tags
