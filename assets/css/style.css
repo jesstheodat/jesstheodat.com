@@ -385,11 +385,11 @@ p strong {
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.82);
+  max-width: 760px;
   margin-bottom: 2.25rem;
-  max-width: 780px;
+  font-size: 1.075rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .hero-subtitle strong {
@@ -401,6 +401,15 @@ p strong {
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+}
+
+.hero-statement {
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.5;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.94);
 }
 
 /* Hero-specific buttons */
