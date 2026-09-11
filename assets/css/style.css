@@ -1196,6 +1196,10 @@ p strong {
     box-shadow var(--transition-fast);
 }
 
+.career-layer-card[data-career-layer="privacy"] {
+  border-left-color: #7770b8;
+}
+
 .career-layer-card[data-career-layer="security"] {
   border-left-color: var(--accent-primary);
 }
@@ -1251,6 +1255,11 @@ p strong {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+[data-career-layer="privacy"] .career-number {
+  background: rgba(119, 112, 184, 0.12);
+  color: #5d559e;
 }
 
 [data-career-layer="security"] .career-number {
